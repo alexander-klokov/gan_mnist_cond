@@ -1,8 +1,10 @@
 import torch
 import random
 
-label_true = torch.FloatTensor([1.0])
-label_false = torch.FloatTensor([0.0])
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+label_true = torch.FloatTensor([1.0]).to(device)
+label_false = torch.FloatTensor([0.0]).to(device)
 
 def generate_random_seed(size):
     random_data = torch.randn(size) # normal
